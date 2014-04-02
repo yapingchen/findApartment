@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.multipart.maxSize" value="1024102400"/>
+  
+
+    <!-- register -->
+    <package name="action.register"	extends="struts-default">	
+        <action name="register_*" class="action.register.registration" method="{1}">
+			<result name="success">/index.html</result>
+			<result name="fail">/register.jsp</result>
+			<result name="cancel">/index.html</result>
+		</action>
+		
+   <!--  login -->
+        <action name="login" class="action.register.loginAction">
+			<result name="loginok">/index.html</result>
+			<result name="retry">/login.jsp</result>
+		</action>
+		
+   <!--  list all information of whole apartment from database  -->
+         <action name="listWholeApartment_*" class="action.register.listWholeApartmentAction" method="{1}">
+			<result name="success">/findWholeApartment.jsp</result>
+			
+		</action>
+		
+          <!--  list all information of shared apartments from database  -->
+         <action name="listSharedApartment_*" class="action.register.listWholeApartmentAction" method="{1}">
+			<result name="success">/findWholeApartment.jsp</result>
+		</action>
+		
+           <!--  list all information of sublease apartments from database  -->
+         <action name="listSubleaseApartment_*" class="action.register.listWholeApartmentAction" method="{1}">
+			<result name="success">/findWholeApartment.jsp</result>
+			
+		</action>
+		
+         <!-- see details of posting  -->
+          <action name="detailsOfPosting_*" class="action.register.detailsOfPostingAction" method="{1}">
+			<result name="success">/detailsOfPosting.jsp</result>		
+		</action>
+    
+         <action name="FileUploadAction" class="action.register.FileUploadAction" >
+              <interceptor-ref name ="fileUpload"> 
+                    <param name="maximumSize">2097152</param>
+                    <param name="allowedTypes">
+                          image/png,image/gif,image/jpeg,image/pjpeg
+                     </param>
+          </interceptor-ref>
+              <interceptor-ref name ="defaultStack" /> 
+			<result name="success">/index.html</result> 
+		   <result name="retry">/postingOfApartment.jsp</result> 
+		   	<result name="nopost">/index.html</result> 
+			<result name="input">/postingOfApartment.jsp</result> 
+			<result name="login">/login.jsp</result> 
+            
+		</action> 
+    </package>
+</struts>

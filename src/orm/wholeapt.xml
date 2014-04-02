@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="orm.wholeapt">
+
+<resultMap type="model.wholeapt" id="wholeapt">
+		<id property="id" column="id" jdbcType="INTEGER" />		
+		<result property="email_poster" column="email_poster"  />
+		<result property="rooms" column="rooms" />
+		<result property="baths" column="baths" />
+		<result property="sqft" column="sqft" />
+		<result property="rent" column="rent" />
+		<result property="laundry" column="laundry" />
+		<result property="parking" column="parking" />
+		<result property="smoking" column="smoking" />
+		<result property="cats" column="cats" />
+		<result property="dogs" column="dogs" />
+		<result property="street" column="street" />
+		<result property="apt" column="apt" />
+		<result property="city" column="city" />
+		<result property="state" column="state" />
+		<result property="description" column="description" />
+		<result property="email_contact" column="email_contact" />
+		<result property="phone_contact" column="phone_contact" />
+		<result property="available_date" column="available_date" />
+		<result property="end_date" column="end_date" />
+		<result property="continuelease" column="continuelease" />
+		
+		<result property="img1" column="img1" />
+		<result property="img2" column="img2" />
+		<result property="create_time" column="create_time" />
+		
+	</resultMap>
+	
+<!--  for wholeapt table -->
+ <select id="selectallwholeaptpost" resultMap="wholeapt">
+    select * from wholeapt
+  </select> 
+  
+    <select id="selectpostingById" resultMap="wholeapt">
+    select * from wholeapt where Id=#{Id}
+  </select> 
+
+   <!--  for sharedapt table -->
+    <select id="selectallsharedaptpost" resultMap="wholeapt">
+    select * from sharedapt
+  </select> 
+  
+    <select id="selectSharedpostingById" resultMap="wholeapt">
+    select * from sharedapt where Id=#{Id}
+  </select> 
+  
+    <!--  for subleaseapt table -->
+    <select id="selectallsubleaseaptpost" resultMap="wholeapt">
+    select * from subleaseapt
+  </select> 
+  
+    <select id="selectSubleasepostingById" resultMap="wholeapt">
+    select * from subleaseapt where Id=#{Id}
+  </select> 
+  
+   <insert id="insertnewpostofwholeapartment"  parameterType="wholeapt">
+  insert into wholeapt(email_poster,rooms,baths,sqft,rent,laundry,parking,smoking,cats,dogs,
+                       street,apt,city,state,description,email_contact,phone_contact,
+                       phone_contact_type,available_date,end_date,continuelease,img1,img2,create_time,type)
+  VALUES (#{email_poster},#{rooms},#{baths},#{sqft},#{rent},#{laundry},#{parking},
+          #{smoking},#{cats},#{dogs},#{street},#{apt},#{city},#{state},#{description},
+          #{email_contact},#{phone_contact},#{phone_contact_type},#{available_date},#{end_date},#{continuelease},#{img1},
+          #{img2},#{create_time},#{type})
+  </insert>
+  
+   
+   <insert id="insertnewpostofsharedapartment"  parameterType="wholeapt">
+  insert into sharedapt(email_poster,rooms,baths,sqft,rent,laundry,parking,smoking,cats,dogs,
+                       street,apt,city,state,description,email_contact,phone_contact,
+                       phone_contact_type,available_date,end_date,continuelease,img1,img2,create_time,type)
+  VALUES (#{email_poster},#{rooms},#{baths},#{sqft},#{rent},#{laundry},#{parking},
+          #{smoking},#{cats},#{dogs},#{street},#{apt},#{city},#{state},#{description},
+          #{email_contact},#{phone_contact},#{phone_contact_type},#{available_date},#{end_date},#{continuelease},
+          #{img1},#{img2},#{create_time},#{type})
+  </insert>
+  
+   
+   <insert id="insertnewpostofsubleaseapartment"  parameterType="wholeapt">
+  insert into subleaseapt(email_poster,rooms,baths,sqft,rent,laundry,parking,smoking,cats,dogs,
+                       street,apt,city,state,description,email_contact,phone_contact,
+                       phone_contact_type,available_date,end_date,continuelease,img1,img2,create_time,type)
+  VALUES (#{email_poster},#{rooms},#{baths},#{sqft},#{rent},#{laundry},#{parking},
+          #{smoking},#{cats},#{dogs},#{street},#{apt},#{city},#{state},#{description},
+          #{email_contact},#{phone_contact},#{phone_contact_type},#{available_date},#{end_date},#{continuelease},
+          #{img1},#{img2},#{create_time},#{type})
+  </insert>
+ 
+</mapper>
