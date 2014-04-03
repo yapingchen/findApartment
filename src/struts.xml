@@ -46,6 +46,16 @@
 			<result name="success">/detailsOfPosting.jsp</result>		
 		</action>
     
+          
+           <!-- save posting  -->
+          <action name="savePosting" class="action.register.savePostingAction">
+			<result name="login" >/login.jsp</result>	
+			<result name="returntolistwholeapt" type="redirect">listWholeApartment_list</result>	
+			<result name="returntolistsharedapt" type="redirect">listSharedApartment_listShared</result>	
+			<result name="returntolistsubletapt" type="redirect">listSubleaseApartment_listSublease</result>	
+		</action>
+		
+          
          <action name="FileUploadAction" class="action.register.FileUploadAction" >
               <interceptor-ref name ="fileUpload"> 
                     <param name="maximumSize">2097152</param>

@@ -5,6 +5,7 @@
 	<typeAliases>
 		<typeAlias alias="user" type="model.user"/>
 			<typeAlias alias="wholeapt" type="model.wholeapt"/>	
+						<typeAlias alias="savedwholeapt" type="model.savedwholeapt"/>	
 			
 	</typeAliases>
 	<environments default="development">
@@ -21,7 +22,8 @@
 	<mappers>
 	 <mapper resource="orm/user.xml"/>
 		   <mapper resource="orm/wholeapt.xml"/>
-		   		   
+		   	  <mapper resource="orm/savedwholeapt.xml"/>
+		   
 		   		   
 	</mappers>
 </configuration>

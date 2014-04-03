@@ -41,10 +41,17 @@
               <s:param name="Id" value="Id"></s:param> 
                <s:param name="type" value="type"></s:param> 
                   </s:url>
-            <s:a href="%{url}">Details</s:a></td>       
+            <s:a href="%{url}">Details</s:a></td> 
+            
+             <td><s:url id="url2" action="savePosting"> 
+              <s:param name="Id" value="Id"></s:param> 
+               <s:param name="type" value="type"></s:param> 
+                  </s:url>
+            <s:a href="%{url2}">Save</s:a></td>       
         </tr> 
     </s:iterator> 	
 				</table> 
+				<s:fielderror/>
 	<s:debug/>		
 </form>	
 </body>

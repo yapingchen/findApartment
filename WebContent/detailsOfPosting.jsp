@@ -25,7 +25,33 @@
 	left: 584px;
 	top: 106px;
 }
+
+#apDiv3 {
+	position:absolute;
+	width:401px;
+	height:331px;
+	z-index:3;
+	left: 817px;
+	top: 104px;
+}
 </style>
+
+<script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4x1V6FmVrJ8LxE7oqf_JIZQIJFvvdaQ4&sensor=true">
+</script>
+
+<script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          center: new google.maps.LatLng(-34.397, 150.644),
+          zoom: 8
+        };
+        var map = new google.maps.Map(document.getElementById("apDiv3"),
+            mapOptions);
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+    
 </head>
 
 <body>
@@ -144,6 +170,7 @@
 <img src="<s:property value="img2"/>"  style="width:100px;height:100px;"/>
 </div>
 
+<div id="apDiv3"></div>
 
 </body>
 </html>

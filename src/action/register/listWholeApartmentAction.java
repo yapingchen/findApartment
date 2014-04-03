@@ -2,6 +2,7 @@ package action.register;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
@@ -52,12 +53,15 @@ private List<wholeapt> wholeaptlist;
 		SqlSession session = sessionFactory.openSession();
 		try{
 			if(type.equals("whole")){
+				wholeaptlist=new ArrayList<wholeapt>();
 				wholeaptlist=session.selectList("selectallwholeaptpost");
 			}
 			if(type.equals("share")){
+				wholeaptlist=new ArrayList<wholeapt>();
 				wholeaptlist=session.selectList("selectallsharedaptpost");
 			}
 			if(type.equals("sublease")){
+				wholeaptlist=new ArrayList<wholeapt>();
 				wholeaptlist=session.selectList("selectallsubleaseaptpost");
 			}
 		
