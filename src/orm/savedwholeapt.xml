@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="orm.savedwholeapt">
+
+<resultMap type="model.savedwholeapt" id="savedwholeapt">
+		<id property="Id" column="Id" />		
+			<result property="userID" column="userID" />
+			<result property="postingID" column="postingID"  />
+	
+	</resultMap>
+	
+
+<insert id="insertnewsavedwholeapt"  parameterType="savedwholeapt">
+  insert into savedwholeapt(userID,postingID)
+  VALUES (#{userID},#{postingID})
+  </insert>
+  
+ <insert id="insertnewsavedsharedapt"  parameterType="savedwholeapt">
+  insert into savedsharedapt(userID,postingID)
+  VALUES (#{userID},#{postingID})
+  </insert>
+  
+  <insert id="insertnewsavedsubleaseapt"  parameterType="savedwholeapt">
+  insert into savedsubleaseapt(userID,postingID)
+  VALUES (#{userID},#{postingID})
+  </insert>
+  
+   <select id="checkduplicatesavedwholeapt" resultMap="savedwholeapt">
+    select * from savedwholeapt where userID=#{userID} and postingID=#{postingID}
+  </select> 
+  
+  <select id="checkduplicatesavedsharedapt" resultMap="savedwholeapt">
+    select * from savedsharedapt where userID=#{userID} and postingID=#{postingID}
+  </select> 
+  
+  <select id="checkduplicatesavedsubleaseapt" resultMap="savedwholeapt">
+    select * from savedsubleaseapt where userID=#{userID} and postingID=#{postingID}
+  </select> 
+  
+</mapper>
