@@ -11,17 +11,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
-
-    <title>Posting of Apartments For Renting</title>
-
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="css/ustified-nav.css" rel="stylesheet">
+    
+    <!-- Documentation extras -->
+     <link href="css/docs.min.css" rel="stylesheet">
 
-    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <title>Posting of Apartments For Renting</title>
+
+   <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -30,16 +31,49 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     
-    <%--  <script>
-    function details(){
-    	var url=document.getElementById("url");
-    	alert(url);
-    window.location.href="detailsOfPosting_seeDetails";
-    }
-   
-    </script> --%>
+ 
 </head>
-<body>
+<body style="padding-top: 70px">
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-6">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Apartment</a>
+        </div>
+        
+        
+     
+
+       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
+          <ul class="nav navbar-nav">
+            <li><a href="index.jsp">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+            <ul class="nav navbar-nav navbar-right">
+            <li id="fat-menu" class="dropdown">
+              <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">ssss <b class="caret"></b></a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Action</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Another action</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Something else here</a></li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+            
+        </div> <!-- /.navbar-collapse -->
+      </div>
+    </nav>    
+    
 
 <form action="" method="post">
 
@@ -81,11 +115,22 @@
                   </s:url>
             <s:a href="%{url2}"><img src="img/save.jpg" width="25" height="25" title="save posting"><img/></s:a></td>       
         </tr> 
-    </s:iterator> 
-    </tbody>	
-				</table> 
+                 </s:iterator> 
+            </tbody>	
+    	</table> 
+</form>
+
+<ul class="pagination">
+  <li class="disabled"><a href="#">&laquo;</a></li>
+  <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+   <li class="active"><a href="#">2 <span class="sr-only">(current)</span></a></li>
+</ul>
+
+    
 				<s:fielderror/>
-	<s:debug/>		
-</form>	
+	<s:debug/>	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="css/bootstrap.min.js"></script>
+<script src="css/bootstrap.js"></script>
 </body>
 </html>
