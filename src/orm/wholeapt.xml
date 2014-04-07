@@ -37,10 +37,31 @@
     select * from wholeapt
   </select> 
   
-    <select id="selectpostingById" resultMap="wholeapt">
+    <select id="selectwholepostingById" resultMap="wholeapt">
     select * from wholeapt where Id=#{Id}
   </select> 
 
+    <select id="selectsharedpostingById" resultMap="wholeapt">
+    select * from sharedapt where Id=#{Id}
+  </select> 
+  
+    <select id="selectsubletpostingById" resultMap="wholeapt">
+    select * from subleaseapt where Id=#{Id}
+  </select>   
+  
+   <select id="selectmyposting" resultMap="wholeapt">
+    select * from wholeapt where email_poster=#{email_poster}
+  </select> 
+  
+   <select id="selectmyshareposting" resultMap="wholeapt">
+    select * from sharedapt where email_poster=#{email_poster}
+  </select> 
+  
+   <select id="selectmysubletposting" resultMap="wholeapt">
+    select * from subleaseapt where email_poster=#{email_poster}
+  </select> 
+  
+   
    <!--  for sharedapt table -->
     <select id="selectallsharedaptpost" resultMap="wholeapt">
     select * from sharedapt

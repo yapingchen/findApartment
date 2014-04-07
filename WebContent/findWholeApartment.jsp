@@ -18,7 +18,11 @@
     <link href="css/ustified-nav.css" rel="stylesheet">
     
     <!-- Documentation extras -->
-     <link href="css/docs.min.css" rel="stylesheet">
+<link href="css/docs.min.css" rel="stylesheet">
+
+<link href="css/font-awesome.css" rel="stylesheet" />
+<link href="css/font-awesome.min.css" rel="stylesheet" /> 
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
     <title>Posting of Apartments For Renting</title>
 
@@ -45,7 +49,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Apartment</a>
+          <a class="navbar-brand" href="index.jsp">Apartment</a>
         </div>
         
         

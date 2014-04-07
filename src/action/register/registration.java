@@ -90,6 +90,10 @@ public class registration extends ActionSupport{
 	}
 	
 	
+	public String cancel(){
+		System.out.print("cancel");
+		return "cancel";
+	}
 	public String getEmail() {
 		return email;
 	}

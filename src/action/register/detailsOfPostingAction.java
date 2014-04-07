@@ -11,6 +11,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import model.wholeapt;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class detailsOfPostingAction extends ActionSupport {
@@ -42,6 +43,7 @@ private String available_date;
 private String end_date;
 private String continuelease;
 private String create_time;
+private String address;
 
 private String img1;
 private String img2;
@@ -66,15 +68,15 @@ private String hint;
 			System.out.println("id is="+Id);
 			System.out.println("type is "+type);
 			if(type.equals("whole")){
-				listofPosting=session.selectList("selectpostingById", Integer.parseInt(Id));
+				listofPosting=session.selectList("selectwholepostingById", Integer.parseInt(Id));
 			}
 			
 			if(type.equals("share")){
-				listofPosting=session.selectList("selectSharedpostingById", Integer.parseInt(Id));
+				listofPosting=session.selectList("selectsharedpostingById", Integer.parseInt(Id));
 			}
 			
 			if(type.equals("sublease")){
-				listofPosting=session.selectList("selectSubleasepostingById", Integer.parseInt(Id));
+				listofPosting=session.selectList("selectsubletpostingById", Integer.parseInt(Id));
 			}
 			
 			posting=listofPosting.get(0);
@@ -101,7 +103,9 @@ private String hint;
 			continuelease=posting.getContinuelease();
 			img1=posting.getImg1();
 			img2=posting.getImg2();
-				
+			address=street+","+city+","+state;
+			ActionContext.getContext().getSession().put("mapaddress", address);
+			
 		System.out.println("dogs="+dogs);
 			if(sqft.equals("")) sqft=hint;
 			if(smoking == null) smoking=hint;

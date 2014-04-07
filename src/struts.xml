@@ -11,16 +11,17 @@
   
 
     <!-- register -->
-    <package name="action.register"	extends="struts-default">	
+    <package name="action.register"	extends="struts-default,json-default">	
+        
         <action name="register_*" class="action.register.registration" method="{1}">
-			<result name="success">/index.html</result>
-			<result name="fail">/register.jsp</result>
+			<result name="success">/index.jsp</result>
+			<result name="fail">/login.jsp</result>
 			<result name="cancel">/index.html</result>
 		</action>
 		
    <!--  login -->
         <action name="login" class="action.register.loginAction">
-			<result name="loginok">/index.html</result>
+			<result name="loginok">/index.jsp</result>
 			<result name="retry">/login.jsp</result>
 		</action>
 		
@@ -43,8 +44,20 @@
 		
          <!-- see details of posting  -->
           <action name="detailsOfPosting_*" class="action.register.detailsOfPostingAction" method="{1}">
-			<result name="success">/detailsOfPosting.jsp</result>		
+			<result name="success"> /detailsOfPosting.jsp</result>		
 		</action>
+		
+          
+           <action name="findMyPosting_*" class="action.register.findMyPostingAction" method="{1}">
+			<result name="success">/myAccountCenter.jsp</result>	
+		</action> 
+		
+           <!-- find my savend postings -->
+          <action name="findMySavedPosting_*" class="action.register.findMySavedPostingAction" method="{1}">
+			<result name="success" >/myAccountCenter.jsp</result>	
+		</action>
+		
+          
     
           
            <!-- save posting  -->
@@ -54,7 +67,6 @@
 			<result name="returntolistsharedapt" type="redirect">listSharedApartment_listShared</result>	
 			<result name="returntolistsubletapt" type="redirect">listSubleaseApartment_listSublease</result>	
 		</action>
-		
           
          <action name="FileUploadAction" class="action.register.FileUploadAction" >
               <interceptor-ref name ="fileUpload"> 
@@ -64,12 +76,13 @@
                      </param>
           </interceptor-ref>
               <interceptor-ref name ="defaultStack" /> 
-			<result name="success">/index.html</result> 
+			<result name="success">/index.jsp</result> 
 		   <result name="retry">/postingOfApartment.jsp</result> 
-		   	<result name="nopost">/index.html</result> 
+		   	<result name="nopost">/index.jsp</result> 
 			<result name="input">/postingOfApartment.jsp</result> 
 			<result name="login">/login.jsp</result> 
             
 		</action> 
     </package>
+  
 </struts>
