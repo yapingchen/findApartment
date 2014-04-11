@@ -48,15 +48,34 @@
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4x1V6FmVrJ8LxE7oqf_JIZQIJFvvdaQ4&sensor=true"></script>
 <script>
+
+
 var geocoder;
 var map;
 
+
+window.onload=function(){
+    var UL1=document.getElementById("right1");
+    var UL2=document.getElementById("right2");
+    var email="${sessionScope.email}";
+
+    if(email==""){
+    	    UL1.style.display="none";
+    	    UL2.style.display="block";
+    }else{
+    	UL1.style.display="block";
+	    UL2.style.display="none";
+    }
+   
+    };
+    
+    
 function initialize() {
   geocoder = new google.maps.Geocoder();
   var latlng = new google.maps.LatLng(-34.397, 150.644);
   var mapOptions = {
     zoom: 15,
-    center: latlng
+    center:latlng
   }
   map = new google.maps.Map(document.getElementById('apDiv3'), mapOptions);
   codeAddress();
@@ -107,22 +126,22 @@ google.maps.event.addDomListener(window, 'load', initialize);
 				<li><a href="#"><i class="fa fa-globe"></i>About</a></li>
 				<li><a href="#"><i class="fa fa-phone-square"></i>Contact Us</a></li>
 			</ul>
-			<ul class="nav navbar-nav navbar-right">
+			<ul class="nav navbar-nav navbar-right" id="right1">
 				<li id="fat-menu" class="dropdown"><a href="#" id="drop3"
-					role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>ssss
-						<b class="caret"></b>
-				</a>
+					role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>${sessionScope.email}
+						<b class="caret"></b></a>
 					<ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
 						<li role="presentation"><a role="menuitem" tabindex="-1"
-							href="http://twitter.com/fat">Action</a></li>
+							href="logout">Log Out</a></li>
 						<li role="presentation"><a role="menuitem" tabindex="-1"
-							href="http://twitter.com/fat">Another action</a></li>
-						<li role="presentation"><a role="menuitem" tabindex="-1"
-							href="http://twitter.com/fat">Something else here</a></li>
-						<li role="presentation" class="divider"></li>
-						<li role="presentation"><a role="menuitem" tabindex="-1"
-							href="http://twitter.com/fat">Separated link</a></li>
-					</ul></li>
+							href="myAccountCenter.jsp">Account Center</a></li>
+					</ul>
+					</li>
+			</ul>
+			
+			<ul class="nav navbar-nav navbar-right" id="right2">
+						<li ><a href="login.jsp">Sign In | Sign Up</a> 
+					</li>
 			</ul>
 
 		</div>
@@ -251,5 +270,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 	<div id="apDiv3"></div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/docs.min.js"></script>
 </body>
 </html>

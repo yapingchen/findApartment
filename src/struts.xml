@@ -58,6 +58,11 @@
 		</action>
 		
           
+           <!-- log out -->
+          <action name="logout" class="action.register.logOutAction" >
+			<result name="success" >/index.jsp</result>	
+		</action>
+          
     
           
            <!-- save posting  -->

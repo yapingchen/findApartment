@@ -3,7 +3,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
     
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
   <meta charset="utf-8">
@@ -35,6 +35,23 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     
+ <script>
+ window.onload=function(){
+	    var UL1=document.getElementById("right1");
+	    var UL2=document.getElementById("right2");
+	    var email="${sessionScope.email}";
+
+	    if(email==""){
+	    	    UL1.style.display="none";
+	    	    UL2.style.display="block";
+	    }else{
+	    	UL1.style.display="block";
+		    UL2.style.display="none";
+	    }
+	   
+	    };
+	    
+ </script>
  
 </head>
 <body style="padding-top: 70px">
@@ -61,18 +78,23 @@
             <li><a href="#">About</a></li>
             <li><a href="#">Contact Us</a></li>
           </ul>
-            <ul class="nav navbar-nav navbar-right">
-            <li id="fat-menu" class="dropdown">
-              <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">ssss <b class="caret"></b></a>
-              <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Action</a></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Another action</a></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Something else here</a></li>
-                <li role="presentation" class="divider"></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Separated link</a></li>
-              </ul>
-            </li>
-          </ul>
+          <ul class="nav navbar-nav navbar-right" id="right1">
+				<li id="fat-menu" class="dropdown"><a href="#" id="drop3"
+					role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>${sessionScope.email}
+						<b class="caret"></b></a>
+					<ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
+						<li role="presentation"><a role="menuitem" tabindex="-1"
+							href="logout">Log Out</a></li>
+						<li role="presentation"><a role="menuitem" tabindex="-1"
+							href="myAccountCenter.jsp">Account Center</a></li>
+					</ul>
+					</li>
+			</ul>
+			
+			<ul class="nav navbar-nav navbar-right" id="right2">
+						<li ><a href="login.jsp">Sign In | Sign Up</a> 
+					</li>
+			</ul>
             
         </div> <!-- /.navbar-collapse -->
       </div>
@@ -134,7 +156,7 @@
 				<s:fielderror/>
 	<s:debug/>	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="css/bootstrap.min.js"></script>
-<script src="css/bootstrap.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/docs.min.js"></script>
 </body>
 </html>
