@@ -4,11 +4,14 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import model.savedwholeapt;
 import model.wholeapt;
 
 import com.opensymphony.xwork2.ActionContext;
@@ -48,6 +51,7 @@ private String address;
 private String img1;
 private String img2;
 private String hint;
+private List<savedwholeapt> savedlist;
 
 
 
@@ -125,7 +129,128 @@ private String hint;
 
 	}
 	
+	public String deletesavedPosting() throws IOException{
 	
+		String resource = "orm/configuration.xml";
+		Reader reader = Resources.getResourceAsReader(resource);
+		SqlSessionFactory sessionFactory = new SqlSessionFactoryBuilder().build(reader);
+		SqlSession session = sessionFactory.openSession();
+		try{
+			savedwholeapt aa=new savedwholeapt();
+			/*delete saved posting by user's email and postingID*/	
+			System.out.println("Id in deletedsaved Posting:"+Id);
+			int res;
+			res=JOptionPane.showConfirmDialog(null,"Are you sure you want to post this message?",
+					"Confirm",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+			if(res==JOptionPane.YES_OPTION){
+				aa.setPostingID(Id);
+				aa.setUserID((String) ActionContext.getContext().getSession().get("email"));
+				
+				if(type.equals("whole")){
+					session.delete("deletesavedpostingofwholeapt",aa);
+				}else if(type.equals("share")){
+					session.delete("deletesavedpostingofsharedapt",aa);
+				}else{
+					session.delete("deletesavedpostingofsubleaseapt",aa);	
+				}
+				session.commit();	
+	    		JOptionPane.showMessageDialog(null,"Deleted Successfully!","Message",JOptionPane.INFORMATION_MESSAGE);
+
+			}else{
+				return "nodelete";
+			}
+			
+		}finally{
+			
+			session.close();
+		}
+		return "deleteok";
+		
+		
+		
+	}
+	
+	public String deletePosting(){
+		System.out.println("Id="+Id);
+		System.out.println("type="+type);
+		
+		String resource = "orm/configuration.xml";
+		Reader reader = null;
+		try {
+			reader = Resources.getResourceAsReader(resource);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		SqlSessionFactory sessionFactory = new SqlSessionFactoryBuilder().build(reader);
+		SqlSession session = sessionFactory.openSession();
+		
+		try{
+			if(type.equals("whole")){
+				savedlist=session.selectList("selectsavedpostingOfwholeaptbyId",Id);
+				System.out.println("size in savedlist="+savedlist.size());
+			}else if(type.equals("share")){
+				savedlist=session.selectList("selectsavedpostingOfsharedaptById",Id);	
+			}else savedlist=session.selectList("selectsavedpostingOfsubletaptById",Id);	
+			
+			int res;
+			
+			if(savedlist.size()>0){
+				res=JOptionPane.showConfirmDialog(null,"Some users have already saved your posting, if you choose to delete this posting, are you sure you still want to delete this posting?",
+						"Confirm",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+			}else{
+				res=JOptionPane.showConfirmDialog(null,"Are you sure you want to delete this posting?",
+						"Confirm",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+			}
+			
+			if(res==JOptionPane.YES_OPTION){
+				if(type.equals("whole")){
+					session.delete("deletepostingofwholeaptById",Id);
+					if(savedlist.size()>0){
+					for(int i=0;i<savedlist.size();++i){
+						session.delete("deletesavedpostingofwholeaptById",savedlist.get(i).getId());
+					  }
+					}
+					session.commit();
+					JOptionPane.showConfirmDialog(null,"Deleted Successfully!",
+							"Message",JOptionPane.OK_OPTION);
+			
+				
+				}else if(type.equals("share")){
+					
+					session.delete("deletepostingofsharedaptById",Id);
+					if(savedlist.size()>0){
+					for(int i=0;i<savedlist.size();++i){
+						session.delete("deletesavedpostingofsharedaptById",savedlist.get(i).getId());
+					  }
+					}
+					session.commit();
+					JOptionPane.showConfirmDialog(null,"Deleted Successfully!",
+							"Message",JOptionPane.OK_OPTION);
+				}else{
+					
+					session.delete("deletepostingofsubleaseaptById",Id);
+					if(savedlist.size()>0){
+					for(int i=0;i<savedlist.size();++i){
+						session.delete("deletesavedpostingofsubleaseaptById",savedlist.get(i).getId());
+					  }
+					}
+					session.commit();
+					JOptionPane.showConfirmDialog(null,"Deleted Successfully!",
+							"Message",JOptionPane.OK_OPTION);
+				
+				}
+				
+				return "deleteok";
+
+			}else{
+				return "nodelete";
+			}
+		}finally{
+			session.close();
+		}
+		
+		
+	}
 
 	public wholeapt getPosting() {
 		return posting;

@@ -111,5 +111,17 @@
           #{email_contact},#{phone_contact},#{phone_contact_type},#{available_date},#{end_date},#{continuelease},
           #{img1},#{img2},#{create_time},#{type})
   </insert>
+  
+    <delete id="deletepostingofwholeaptById" parameterType="wholeapt">
+    DELETE from wholeapt where Id=#{Id} 
+  </delete>
  
+    <delete id="deletepostingofsharedaptById" parameterType="wholeapt">
+    DELETE from sharedapt where Id=#{Id} 
+  </delete>
+
+  <delete id="deletepostingofsubleaseaptById" parameterType="wholeapt">
+    DELETE from subleaseapt where Id=#{Id} 
+  </delete>
+  
 </mapper>

@@ -7,7 +7,6 @@
 		<id property="Id" column="Id" />		
 			<result property="userID" column="userID" />
 			<result property="postingID" column="postingID"  />
-	
 	</resultMap>
 	
 
@@ -15,14 +14,26 @@
     select * from savedwholeapt where userID=#{userID}
   </select> 
   
+  <select id="selectsavedpostingOfwholeaptbyId" resultMap="savedwholeapt">
+    select * from savedwholeapt where postingID=#{postingID}
+  </select>
+   
 	<select id="selectsavedpostingOfsharedapt" resultMap="savedwholeapt">
     select * from savedsharedapt where userID=#{userID}
+  </select> 
+  
+	<select id="selectsavedpostingOfsharedaptById" resultMap="savedwholeapt">
+    select * from savedsharedapt where postingID=#{postingID}
   </select> 
   
 	<select id="selectsavedpostingOfsubletapt" resultMap="savedwholeapt">
     select * from savedsubleaseapt where userID=#{userID}
   </select> 
 
+	<select id="selectsavedpostingOfsubletaptById" resultMap="savedwholeapt">
+    select * from savedsubleaseapt where postingID=#{postingID}
+  </select> 
+  
 <insert id="insertnewsavedwholeapt"  parameterType="savedwholeapt">
   insert into savedwholeapt(userID,postingID)
   VALUES (#{userID},#{postingID})
@@ -49,5 +60,30 @@
   <select id="checkduplicatesavedsubleaseapt" resultMap="savedwholeapt">
     select * from savedsubleaseapt where userID=#{userID} and postingID=#{postingID}
   </select> 
+  
+   <delete id="deletesavedpostingofwholeapt" parameterType="savedwholeapt">
+    DELETE from savedwholeapt where userID=#{userID} and postingID=#{postingID}
+  </delete> 
+  
+   <delete id="deletesavedpostingofwholeaptById" parameterType="savedwholeapt">
+    DELETE from savedwholeapt where Id=#{Id}
+  </delete> 
+  
+   
+  <delete id="deletesavedpostingofsharedapt" parameterType="savedwholeapt">
+    DELETE from savedsharedapt where userID=#{userID} and postingID=#{postingID}
+  </delete>
+  
+   <delete id="deletesavedpostingofsharedaptById" parameterType="savedwholeapt">
+    DELETE from savedsharedapt where Id=#{Id} 
+  </delete>
+  
+  <delete id="deletesavedpostingofsubleaseapt" parameterType="savedwholeapt">
+    DELETE from savedsubleaseapt where userID=#{userID} and postingID=#{postingID}
+  </delete>
+   
+  <delete id="deletesavedpostingofsubleaseaptById" parameterType="savedwholeapt">
+    DELETE from savedsubleaseapt where Id=#{Id}
+  </delete>
   
 </mapper>

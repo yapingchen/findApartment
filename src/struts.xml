@@ -45,6 +45,8 @@
          <!-- see details of posting  -->
           <action name="detailsOfPosting_*" class="action.register.detailsOfPostingAction" method="{1}">
 			<result name="success"> /detailsOfPosting.jsp</result>		
+			<result name="deleteok"> /myAccountCenter.jsp</result>	
+			<result name="nodelete"> /myAccountCenter.jsp</result>		
 		</action>
 		
           
