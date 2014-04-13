@@ -55,6 +55,7 @@ private List<savedwholeapt> savedlist;
 
 
 
+
 	/**
 	 * 
 	 */
@@ -252,6 +253,41 @@ private List<savedwholeapt> savedlist;
 		
 	}
 
+	public String updatePosting(){
+		System.out.println("Id in update="+Id);
+		System.out.println("type in update="+type);
+		
+		String resource = "orm/configuration.xml";
+		Reader reader = null;
+		try {
+			reader = Resources.getResourceAsReader(resource);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		SqlSessionFactory sessionFactory = new SqlSessionFactoryBuilder().build(reader);
+		SqlSession session = sessionFactory.openSession();
+		
+		try{
+			if(type.equals("whole")){
+				listofPosting=session.selectList("selectwholepostingById",Id);
+				posting=listofPosting.get(0);
+				System.out.println(posting.getApt());
+				getPosting();
+				
+			}else if(type.equals("share")){
+				
+			}else{
+				
+			}
+			
+			return "updatedok";
+		}finally{
+			session.close();
+		}
+		
+		
+	}
+	
 	public wholeapt getPosting() {
 		return posting;
 	}

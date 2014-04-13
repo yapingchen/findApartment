@@ -392,8 +392,11 @@
 					</tr>
 
 					<tr>
+					<td></td>
 						<td class="btn-lg" class="active"><s:submit value="Submit" /><span class="sr-only">(current)</span></a></td>
-						<td class="btn-lg" class="active"><s:reset value="Reset"></s:reset><span class="sr-only">(current)</span></a></td>
+						<td class="btn-lg" class="active"><s:reset value="Reset" ></s:reset><span class="sr-only">(current)</span></a></td>
+					<td >&nbsp;</td>
+						<td>&nbsp;</td>
 					</tr>
 				</table>
 				<s:debug />

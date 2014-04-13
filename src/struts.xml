@@ -47,6 +47,7 @@
 			<result name="success"> /detailsOfPosting.jsp</result>		
 			<result name="deleteok"> /myAccountCenter.jsp</result>	
 			<result name="nodelete"> /myAccountCenter.jsp</result>		
+		    <result name="updatedok"> /myAccountCenter.jsp</result>	
 		</action>
 		
           
