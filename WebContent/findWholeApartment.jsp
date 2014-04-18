@@ -75,8 +75,8 @@
        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
           <ul class="nav navbar-nav">
             <li><a href="index.jsp">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact Us</a></li>
+            <li><a href="aboutUs.jsp">About</a></li>
+            <li><a href="contactUs.jsp">Contact Us</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right" id="right1">
 				<li id="fat-menu" class="dropdown"><a href="#" id="drop3"
@@ -114,7 +114,9 @@
      <td width="10%"><div align="center">City</div></td>  
      <td width="23%"><div align="center">Street</div></td>  
      <td width="12%"><div align="center">Available Date</div></td>  
-     <td width="12%"><div align="center">End Date</div></td>   
+     <td width="12%"><div align="center">End Date</div></td>  
+      <td width="12%"><div align="center">Details</div></td>  
+     <td width="12%"><div align="center">Save</div></td>   
   </tr> 
    </thead>
   <tbody>
@@ -146,15 +148,10 @@
     	</table> 
 </form>
 
-<ul class="pagination">
-  <li class="disabled"><a href="#">&laquo;</a></li>
-  <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-   <li class="active"><a href="#">2 <span class="sr-only">(current)</span></a></li>
-</ul>
 
     
 				<s:fielderror/>
-	<s:debug/>	
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/docs.min.js"></script>

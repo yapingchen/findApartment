@@ -16,6 +16,7 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ServletRequestAware;
 
 import com.opensymphony.xwork2.ActionContext;
@@ -201,18 +202,21 @@ import com.opensymphony.xwork2.ActionSupport;
 		    	if(toBeUploaded!=null){
 		    		/* upload files to server */
 			        for(int i=0;i<toBeUploaded.length;++i){
-			    	 String filePath = "E:/upload/";  
+			    	// String filePath = "E:/upload/";  
+String filePath=ServletActionContext.getServletContext().getRealPath("/"); 
+System.out.println("path="+filePath);
 
-			         System.out.println(filePath);
 			         System.out.println("file="+toBeUploaded[i]);
 			         System.out.println("filename="+toBeUploadedFileName[i]);
 
 			         File fileToCreate = new File(filePath, this.toBeUploadedFileName[i]);  
 			         if(i==0){
-				         newpost.setImg1(""+filePath+toBeUploadedFileName[i]);
+				       //  newpost.setImg1(""+filePath+toBeUploadedFileName[i]);
+			        	 newpost.setImg1(toBeUploadedFileName[i]);
 			         }
 			         if(i==1){
-				         newpost.setImg2(""+filePath+toBeUploadedFileName[i]);
+				         //newpost.setImg2(""+filePath+toBeUploadedFileName[i]);
+			        	 newpost.setImg2(toBeUploadedFileName[i]);
 
 			         }
 			         try {  

@@ -91,6 +91,7 @@ private List<savedwholeapt> savedlist;
 			rent=posting.getRent();
 			cats=posting.getCats();
 			dogs=posting.getDogs();
+			apt=posting.getApt();
 			smoking=posting.getSmoking();
 			sqft=posting.getSqft();
 			laundry=posting.getLaundry();
@@ -268,17 +269,60 @@ private List<savedwholeapt> savedlist;
 		SqlSession session = sessionFactory.openSession();
 		
 		try{
+			
 			if(type.equals("whole")){
 				listofPosting=session.selectList("selectwholepostingById",Id);
-				posting=listofPosting.get(0);
-				System.out.println(posting.getApt());
-				getPosting();
+
+			}else if(type.equals("share")){
+				listofPosting=session.selectList("selectsharedpostingById",Id);
+
+			}else{
+				listofPosting=session.selectList("selectsubletpostingById",Id);
+
+			}
+			posting=listofPosting.get(0);
+			System.out.println(posting.getApt());
+			laundry=posting.getLaundry();
+			sqft=posting.getSqft();
+			rent=posting.getRent();
+			phone_contact=posting.getPhone_contact();
+			phone_contact_type=posting.getPhone_contact_type();
+			email_contact=posting.getEmail_contact();
+			available_date=posting.getAvailable_date();
+			end_date=posting.getEnd_date();
+			rooms=posting.getRooms();
+			baths=posting.getBaths();
+			type=posting.getType();
+			parking=posting.getParking();
+			cats=posting.getCats();
+			dogs=posting.getDogs();
+			smoking=posting.getSmoking();
+			street=posting.getStreet();
+			apt=posting.getApt();
+			description=posting.getDescription();
+			city=posting.getCity();
+			state=posting.getState();
+			continuelease=posting.getContinuelease();
+			img1=posting.getImg1();
+			img2=posting.getImg2();
+			email_poster=posting.getEmail_poster();
+			create_time=posting.getCreate_time();
+			ActionContext.getContext().getSession().put("updatedpostingtype", type);
+			ActionContext.getContext().getSession().put("updatedpostingid",Id );
+			System.out.println("type="+type);
+			System.out.println("dogs="+dogs);
+			System.out.println("laundry="+laundry);
+			System.out.println("parking="+parking);
+			
+			
+		/*	if(type.equals("whole")){
+				
 				
 			}else if(type.equals("share")){
 				
 			}else{
 				
-			}
+			}*/
 			
 			return "updatedok";
 		}finally{

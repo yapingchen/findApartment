@@ -51,20 +51,7 @@ function register(){
             <li><a href="index.jsp"><i class="fa fa-home"></i>Home</a></li>
 				<li><a href="#"><i class="fa fa-globe"></i>About</a></li>
 				<li><a href="#"><i class="fa fa-phone-square"></i>Contact Us</a></li>
-          </ul>
-            <ul class="nav navbar-nav navbar-right">
-            <li id="fat-menu" class="dropdown">
-              <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">ssss <b class="caret"></b></a>
-              <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Action</a></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Another action</a></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Something else here</a></li>
-                <li role="presentation" class="divider"></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Separated link</a></li>
-              </ul>
-            </li>
-          </ul>
-            
+          </ul>            
         </div>
 	<!-- /.navbar -->
 	</div>
@@ -73,21 +60,16 @@ function register(){
 
 		<div class="row row-offcanvas row-offcanvas-right">
 
-			<div class="col-xs-12 col-sm-9">
-				<p class="pull-right visible-xs">
-					<button type="button" class="btn btn-primary btn-xs"
-						data-toggle="offcanvas">Toggle nav</button>
-				</p>
+			
 				<div class="jumbotron">
-					<h1>Hello, world!</h1>
-					<p>This is an example to show the potential of an offcanvas
-						layout pattern in Bootstrap. Try some responsive-range viewport
-						sizes to see it in action.</p>
+					<h1>Apartment Finder!</h1>
+					<p>Need an apartment for rent, subleting or sharing? Dont know
+						where to go, whom to contact, what price to pay? Needless to worry.. Apartment Finder
+						is the one stop solution to all the help you want related to apartments..</p>
 				</div>
 
 			</div>
 		</div>
-	</div>
 
    <!--   form for login -->
 	<s:form role="form" action="login" method="post">
@@ -114,6 +96,7 @@ function register(){
 					</div>
 				</td>
 				<td></td>
+				
 			</tr>
 			<tr>
 				<td></td>
@@ -138,35 +121,7 @@ function register(){
 				<td></td>
 			</tr>
 		</table>
-		<%-- <table class="center-block table table-hover" border="1" align="center" >
-					 <tbody class="table-hover">
-					 <tr class="warning">
-					 <td>Email(*)</td>
-					<td>
-						<input name="email"></input>
-                                               
-					</td>
-				</tr>	
-				</tbody>			
-				<tbody class="table-hover">
-				<tr>
-				     <td>
-						Password(*)
-					</td>  
-                      <td>
-						<input name="password" ></input>
-					</td>         
-				</tr>			    
-			</tbody>
-			<tr class="warning">
-			
-				<td><button type="button" class="btn btn-info btn-lg">Large button</button></td>
-				<td><input class="btn btn-default" type="submit" value="Input"></td>
-				<td><s:submit class="btn btn-info" value="Submit"></s:submit></td>
-                 <td><s:submit class="btn btn-info" value="Cancel"></s:submit></td>
-				</tr>
-		</table> --%>
-		<%-- <s:debug /> --%>
+	
 	</s:form>
 	
 	<!-- end form for login -->

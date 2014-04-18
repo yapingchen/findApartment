@@ -22,9 +22,11 @@
 		<result property="description" column="description" />
 		<result property="email_contact" column="email_contact" />
 		<result property="phone_contact" column="phone_contact" />
+		<result property="phone_contact_type" column="phone_contact_type" />
 		<result property="available_date" column="available_date" />
 		<result property="end_date" column="end_date" />
 		<result property="continuelease" column="continuelease" />
+		<result property="type" column="type" />
 		
 		<result property="img1" column="img1" />
 		<result property="img2" column="img2" />
@@ -123,5 +125,27 @@
   <delete id="deletepostingofsubleaseaptById" parameterType="wholeapt">
     DELETE from subleaseapt where Id=#{Id} 
   </delete>
+  
+  <update id="updatewholeapt"  parameterType="wholeapt">
+  update wholeapt set rooms=#{rooms},baths=#{baths},sqft=#{sqft},rent=#{rent},laundry=#{laundry},parking=#{parking},
+          smoking=#{smoking},cats=#{cats},dogs=#{dogs},street=#{street},apt=#{apt},city=#{city},state=#{state},description=#{description},
+         email_contact= #{email_contact},phone_contact=#{phone_contact},phone_contact_type=#{phone_contact_type},available_date=#{available_date},end_date=#{end_date},continuelease=#{continuelease},
+         img1= #{img1},img2=#{img2} where id=#{id};
+  </update>
+  
+   <update id="updateshareapt"  parameterType="wholeapt">
+  update sharedapt set rooms=#{rooms},baths=#{baths},sqft=#{sqft},rent=#{rent},laundry=#{laundry},parking=#{parking},
+          smoking=#{smoking},cats=#{cats},dogs=#{dogs},street=#{street},apt=#{apt},city=#{city},state=#{state},description=#{description},
+         email_contact= #{email_contact},phone_contact=#{phone_contact},phone_contact_type=#{phone_contact_type},available_date=#{available_date},end_date=#{end_date},continuelease=#{continuelease},
+         img1= #{img1},img2=#{img2} where id=#{id};
+  </update>
+  
+    <update id="updatesubleaseapt"  parameterType="wholeapt">
+  update subleaseapt set rooms=#{rooms},baths=#{baths},sqft=#{sqft},rent=#{rent},laundry=#{laundry},parking=#{parking},
+          smoking=#{smoking},cats=#{cats},dogs=#{dogs},street=#{street},apt=#{apt},city=#{city},state=#{state},description=#{description},
+         email_contact= #{email_contact},phone_contact=#{phone_contact},phone_contact_type=#{phone_contact_type},available_date=#{available_date},end_date=#{end_date},continuelease=#{continuelease},
+         img1= #{img1},img2=#{img2} where id=#{id};
+  </update>
+
   
 </mapper>

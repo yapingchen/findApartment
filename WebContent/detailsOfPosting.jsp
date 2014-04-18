@@ -41,7 +41,7 @@
 	width: 401px;
 	height: 331px;
 	z-index: 3;
-	left: 817px;
+	left: 1000px;
 	top: 104px;
 }
 </style>
@@ -123,8 +123,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
 			id="bs-example-navbar-collapse-6">
 			<ul class="nav navbar-nav">
 				<li><a href="index.jsp"><i class="fa fa-home"></i>Home</a></li>
-				<li><a href="#"><i class="fa fa-globe"></i>About</a></li>
-				<li><a href="#"><i class="fa fa-phone-square"></i>Contact Us</a></li>
+				<li><a href="aboutUs.jsp"><i class="fa fa-globe"></i>About</a></li>
+				<li><a href="contactUs.jsp"><i class="fa fa-phone-square"></i>Contact Us</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right" id="right1">
 				<li id="fat-menu" class="dropdown"><a href="#" id="drop3"
@@ -210,6 +210,13 @@ google.maps.event.addDomListener(window, 'load', initialize);
 				<td class="btn-lg">Address:</td>
 				<td class="btn-lg">Street:</td>
 				<td class="input-group-addon text-success"><s:property value="street" /></td>
+				<td class="btn-lg">&nbsp; </td>
+			</tr>
+
+               <tr>
+				<td class="btn-lg">&nbsp;</td>
+				<td class="btn-lg">APT:</td>
+				<td class="input-group-addon text-success"><s:property value="apt" /></td>
 				<td class="btn-lg">&nbsp;</td>
 			</tr>
 
@@ -253,19 +260,18 @@ google.maps.event.addDomListener(window, 'load', initialize);
 			</tr>
 			<tr>
 				<td class="btn-lg">Can continue after the lease?</td>
-				<td class="btn-lg" class="input-group-addon text-success"><s:property value="continuelease" /></td>
+				<td class="input-group-addon text-success"><s:property value="continuelease" /></td>
 				<td class="btn-lg">&nbsp;</td>
 				<td class="btn-lg">&nbsp;</td>
 			</tr>
 
 		</table>
-		<s:debug />
+	
 	</div>
 
 	<div id="apDiv2">
-		<img src="<s:property value="img1"/>"
-			style="width: 100px; height: 100px;" /> <img
-			src="<s:property value="img2"/>" style="width: 100px; height: 100px;" />
+		<p><img src="<s:property value="img1"/>" style="width: 300px; height: 300px;" /> 
+		<p><img src="<s:property value="img2"/>" style="width: 300px; height: 300px;" />
 	</div>
 
 	<div id="apDiv3"></div>

@@ -31,7 +31,7 @@
     
     <script>
     window.onload =function() { 
-    	sign();      		    
+    //	sign();      		    
     	 var div1=document.getElementById("div1");
 	     var div2=document.getElementById("div2");
 	     var div3=document.getElementById("div3");
@@ -120,7 +120,7 @@
    	   	window.location.href="findMySavedPosting_savedsubletapt";	
     }
     
-    function sign(){
+    /* function sign(){
     	 var UL1=document.getElementById("right1");
 		    var UL2=document.getElementById("right2");
 		    var email="${sessionScope.email}";
@@ -132,7 +132,7 @@
 		    }else{
 		    	UL1.style.display="block";
 		    }
-    }
+    } */
     </script>
   </head>
 
@@ -155,10 +155,10 @@
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
 			<ul class="nav navbar-nav">
 				<li><a href="index.jsp"><i class="fa fa-home"></i>Home</a></li>
-				<li><a href="#"><i class="fa fa-globe"></i>About</a></li>
-				<li><a href="#"><i class="fa fa-phone-square"></i>Contact Us</a></li>
+				<li><a href="aboutUs.jsp"><i class="fa fa-globe"></i>About</a></li>
+				<li><a href="contactUs.jsp"><i class="fa fa-phone-square"></i>Contact Us</a></li>
 			</ul>
-			<ul class="nav navbar-nav navbar-right" id="right1">
+			<ul class="nav navbar-nav navbar-right" id="right1" display="block">
 				<li id="fat-menu" class="dropdown"><a href="#" id="drop3"
 					role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>${sessionScope.email}
 						<b class="caret"></b></a>
@@ -171,10 +171,7 @@
 					</li>
 			</ul>
 			
-			<ul class="nav navbar-nav navbar-right" id="right2">
-						<li ><a href="login.jsp">Sign In | Sign Up</a> 
-					</li>
-			</ul>
+	
 		</div>
 		<!-- /.navbar-collapse -->
 	</div>
@@ -217,6 +214,9 @@
      <td ><div align="center">Street</div></td>  
      <td ><div align="center">Available Date</div></td>  
      <td ><div align="center">End Date</div></td>   
+       <td ><div align="center">Details</div></td>  
+     <td ><div align="center">Delete</div></td>  
+     <td ><div align="center">Update</div></td>   
   </tr> 
    </thead>
    
@@ -298,6 +298,12 @@
                   </s:url>
              <s:a href="%{url2}"><img src="img/delete.jpg" width="25" height="25" title="delete posting"><img/></s:a></td> 
              
+              <td><s:url id="url3" action="detailsOfPosting_updatePosting"> 
+              <s:param name="Id" value="Id"></s:param> 
+               <s:param name="type" value="type"></s:param> 
+                  </s:url>
+             <s:a href="%{url3}"><img src="img/update.jpg" width="25" height="25" title="update posting"><img/></s:a></td> 
+             
                 </tr> 
                  </s:iterator> 
             </tbody>	
@@ -348,12 +354,18 @@
                   </s:url>
              <s:a href="%{url2}"><img src="img/delete.jpg" width="25" height="25" title="delete posting"><img/></s:a></td> 
              
+              <td><s:url id="url3" action="detailsOfPosting_updatePosting"> 
+              <s:param name="Id" value="Id"></s:param> 
+               <s:param name="type" value="type"></s:param> 
+                  </s:url>
+             <s:a href="%{url3}"><img src="img/update.jpg" width="25" height="25" title="update posting"><img/></s:a></td> 
+             
                 </tr> 
                  </s:iterator> 
             </tbody>	
     	</table> 
      </form>     
-      <s:debug/> 
+      
    </div>
 <!-- end:div3 for my posting of sublet apartment -->   
 

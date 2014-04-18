@@ -116,8 +116,8 @@
 				id="bs-example-navbar-collapse-6">
 				<ul class="nav navbar-nav">
 					<li><a href="index.jsp"><i class="fa fa-home"></i>Home</a></li>
-					<li><a href="#"><i class="fa fa-globe"></i>About</a></li>
-					<li><a href="#"><i class="fa fa-phone-square"></i>Contact
+					<li><a href="aboutUs.jsp"><i class="fa fa-globe"></i>About</a></li>
+					<li><a href="contactUs.jsp"><i class="fa fa-phone-square"></i>Contact
 							Us</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right" id="right1">
@@ -167,7 +167,7 @@
 				<img src="img/apt2.jpg" alt="Second slide" style="margin: auto;"
 					width=400 height=400>
 			</div>
-			<div class="item">
+			<div class="item"> 
 				<img src="img/apt3.jpg" alt="Third slide" style="margin: auto;"
 					width=400 height=400>
 			</div>
@@ -193,7 +193,7 @@
 				<td>
 					<!-- <button type="button" class="btn btn-primary btn-lg"
 						onClick="postingapt()">Post Apartment</button> -->
-						<a href="postingOfApartment.jsp"><img src="img/post.png" alt="post information" class="img-rounded"/></a>
+						<a href="postingOfApartment.jsp"><img src="img/post.png" width="150" height="150" alt="post information" class="img-rounded"/></a>
 				</td>
 			</tr>
 		</table>
@@ -239,24 +239,26 @@
     
      </header>  -->
 	<!-- Footer-->
+	
 	<footer class="footer" ng-controller="FooterCtrl">
 		<div class="content">
 			<center>
 				<p>
-					Designed and developed by students <a
-						href="www.linkedin.com/pub/yaping-chen/89/36/45b/">Yaping(Zoe)
-						Chen </a>and <a href="www.linkedin.com/pub/yaping-chen/89/36/45b/">Regina
-						Selvi Panneer Selvam </a>
+					Designed and developed by students 
+					<a href="http://www.linkedin.com/pub/yaping-chen/89/36/45b/">Yaping(Zoe)Chen </a>and 
+					<a href="http://www.linkedin.com/pub/yaping-chen/89/36/45b/">Regina Selvi Panneer Selvam </a>
 				</p>
-			</center>
 			
-			<ul class="footer-links">
+					<ul class="footer-links" type="none">
+			
 				<li><a href="https://github.com/yapingchen/findApartment">Github</a></li>
-				<li class="muted">&middot;</li>
 				<li><a href="" ng-click="openModal()">Terms and Conditions</a></li>
+				
 			</ul>
+			</center>
 		</div>
 	</footer>
+	
 	<!-- At the privacy link and terms we can have a page to declare our privacy agreements.-->
 	<!-- End of Footer-->
 

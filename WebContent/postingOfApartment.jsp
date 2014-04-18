@@ -24,6 +24,9 @@
 	href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css"
 	rel="stylesheet">
 
+ 	
+
+ 
 <style type="text/css">
 #apDiv1 {
 	position: absolute;
@@ -38,48 +41,58 @@
 	color: #F00;
 }
 </style>
-<%-- <script>
-        function uploadFile() {
-        	 var url="FileUploadActionAjax";
-        	 toBeUploaded=document.getElementById("f1");
 
-          
-           if(window.XMLHttpRequest){
-               req=new XMLHttpRequest();
-           }else if(window.ActiveXObject){
-               req=new ActiveXObject("Microsoft.XMLHTTP");
-           }
-           
-           alert("aaaa");
-           req.open("POST",url,true);
-           req.onreadystatechange=callback;
-           /* send this json object to servlet */
-           req.send();
-           
-        }
-        
-        
-        function callback(){
-            if(req.readyState===4){
-                if (req.status===200){
-                    alert("bbbb");
-
-                	document.getElementById("span1").innerHTML=req.responseText.parseJSON().result;
-                }
-            }
-        }
-     </script> --%>
-
+   <%--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/docs.min.js"></script> --%>
+	
 <script>
+
+window.onload = function() {
+	var UL1 = document.getElementById("right1");
+	var UL2 = document.getElementById("right2");
+	var email = "${sessionScope.email}";
+
+	if (email == "") {
+		UL1.style.display = "none";
+		UL2.style.display = "block";
+	} else {
+		UL1.style.display = "block";
+		UL2.style.display = "none";
+	}
+
+};
+
+function postingapt() {
+	window.location.href = "postingOfApartment.jsp";
+}
+
+function wholeapt() {
+	window.location.href = "listWholeApartment_list.action";
+}
+function shareapt() {
+	window.location.href = "listSharedApartment_listShared.action";
+}
+function subletapt() {
+	window.location.href = "listSubleaseApartment_listSublease.action";
+}
+
 	/* choose date */
 
 	var stateData = {
-		"state" : [ "----", "PA", "CA" ],
+		"state" : [ "----","PA", "CA","NY","IL","FL","TX","AZ","OH","IN","CO" ],
 		"----" : [ "----" ],
-		"PA" : [ "Pittsburgh", "Philadelphia" ],
-		"CA" : [ "SanFransicso", "LosAngeles" ]
+		"PA" : [ "Pittsburgh", "Philadelphia","Allentown","Altoona" ],
+		"CA" : [ "San Fransicso", "LosAngeles","San Diego", "San Jose" ],
+		"NY" : ["New York City","Buffalo","Albany"],
+		"IL" : ["Chicago","Springfield"],
+		"FL" : ["Tampa","Miami","Melbourne"],
+		"TX" : ["Dallas","Austin","Arlington"],
+		"AZ" : ["Phoenix","Tucson"],
+		"OH" : ["Cincinnati","Columbus"],
+		"IN" : ["Indianapolis"],
+		"CO" : ["Denver","Boulder"]
 	};
-
 	function choosecity() {
 		var selectedState = document.getElementById("state");
 		var cities = document.getElementById("city");
@@ -170,26 +183,25 @@
 			id="bs-example-navbar-collapse-6">
 			<ul class="nav navbar-nav">
 				<li><a href="index.jsp"><i class="fa fa-home"></i>Home</a></li>
-				<li><a href="#"><i class="fa fa-globe"></i>About</a></li>
-				<li><a href="#"><i class="fa fa-phone-square"></i>Contact
+				<li><a href="aboutUs.jsp"><i class="fa fa-globe"></i>About</a></li>
+				<li><a href="contactUs.jsp"><i class="fa fa-phone-square"></i>Contact
 						Us</a></li>
 			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li id="fat-menu" class="dropdown"><a href="#" id="drop3"
-					role="button" class="dropdown-toggle" data-toggle="dropdown"><i
-						class="fa fa-user"></i>ssss <b class="caret"></b> </a>
-					<ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
-						<li role="presentation"><a role="menuitem" tabindex="-1"
-							href="http://twitter.com/fat">Action</a></li>
-						<li role="presentation"><a role="menuitem" tabindex="-1"
-							href="http://twitter.com/fat">Another action</a></li>
-						<li role="presentation"><a role="menuitem" tabindex="-1"
-							href="http://twitter.com/fat">Something else here</a></li>
-						<li role="presentation" class="divider"></li>
-						<li role="presentation"><a role="menuitem" tabindex="-1"
-							href="http://twitter.com/fat">Separated link</a></li>
-					</ul></li>
-			</ul>
+			<ul class="nav navbar-nav navbar-right" id="right1">
+					<li id="fat-menu" class="dropdown"><a href="#" id="drop3"
+						role="button" class="dropdown-toggle" data-toggle="dropdown"><i
+							class="fa fa-user"></i>${sessionScope.email} <b class="caret"></b></a>
+						<ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
+							<li role="presentation"><a role="menuitem" tabindex="-1"
+								href="logout">Log Out</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1"
+								href="myAccountCenter.jsp">Account Center</a></li>
+						</ul></li>
+				</ul>
+
+				<ul class="nav navbar-nav navbar-right" id="right2">
+					<li><a href="login.jsp">Sign In | Sign Up</a></li>
+				</ul>
 
 		</div>
 		<!-- /.navbar-collapse -->
@@ -314,13 +326,20 @@
 					</tr>
 					<tr>
 						<td class="btn-lg">&nbsp;</td>
-						<td class="btn-lg"><label>State:<span id="required">*</span> <select
-								name="state" id="state" style="width: 130px"
-								onchange="choosecity()">
+						<td class="btn-lg"><label>State:<span id="required">*</span> 
+						<select name="state" id="state" style="width: 130px" onchange="choosecity()">
 									<option value="---"></option>
 									<option value="PA">PA</option>
 									<option value="CA">CA</option>
-							</select>
+									<option value="NY">NY</option>
+									<option value="IL">IL</option>
+									<option value="FL">FL</option>
+									<option value="TX">TX</option>
+									<option value="AZ">AZ</option>
+									<option value="OH">OH</option>
+									<option value="IN">IN</option>
+									<option value="CO">CO</option>							
+									</select>
 
 						</label></td>
 						<td class="btn-lg"><label>City:<span id="required">*</span> <select
@@ -333,7 +352,7 @@
 					</tr>
 					<tr>
 						<td class="btn-lg">More descriptions:</td>
-						<td class="btn-lg"><textarea name="description"
+						<td colspan="4" class="btn-lg"><textarea name="description" cols="110" rows="3"
 								placeholder="you can write more descriptions about your apartment/house"></textarea></td>
 					</tr>
 
@@ -399,7 +418,7 @@
 						<td>&nbsp;</td>
 					</tr>
 				</table>
-				<s:debug />
+				
 				<div>
 					<s:fielderror />
 				</div>
@@ -408,7 +427,11 @@
 		</s:form>
 	</div>
 
-
-
+	<!-- Placed at the end of the document so the pages load faster -->
+<%-- 	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/docs.min.js"></script>
+ --%>
 </body>
 </html>

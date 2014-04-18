@@ -38,12 +38,11 @@ public class savePostingAction extends ActionSupport {
 	
 		try{
 			System.out.println("sdsds");
-			userID="yac32@pitt.edu";
-			/*userID=(String) ActionContext.getContext().getSession().get("email");
+			userID=(String) ActionContext.getContext().getSession().get("email");
 			if(userID==null){
 				JOptionPane.showMessageDialog(null,"Please login first!","Message",JOptionPane.ERROR_MESSAGE);
 				return "login";
-			}*/
+			}
 			System.out.println(userID);
 			System.out.println(type);
 			System.out.println(Id);
@@ -64,7 +63,7 @@ public class savePostingAction extends ActionSupport {
 					savelist=session2.selectList("checkduplicatesavedwholeapt",save);
 					if(savelist.size()>0) {
 						JOptionPane.showConfirmDialog(null,"You have already saved this posting before!",
-								"Message",JOptionPane.OK_OPTION);
+								"Message",JOptionPane.WARNING_MESSAGE);
 						return "returntolistwholeapt";
 					}
 		            session.insert("insertnewsavedwholeapt", save);
@@ -77,7 +76,7 @@ public class savePostingAction extends ActionSupport {
 					savelist=session2.selectList("checkduplicatesavedsharedapt",save);
 					if(savelist.size()>0) {
 						JOptionPane.showConfirmDialog(null,"You have already saved this posting before!",
-								"Message",JOptionPane.YES_OPTION);
+								"Message",JOptionPane.WARNING_MESSAGE);
 						return "returntolistsharedapt";
 					}
 		            session.insert("insertnewsavedsharedapt", save);
@@ -90,7 +89,7 @@ public class savePostingAction extends ActionSupport {
 					savelist=session2.selectList("checkduplicatesavedsubleaseapt",save);
 					if(savelist.size()>0) {
 						JOptionPane.showConfirmDialog(null,"You have already saved this posting before!",
-								"Message",JOptionPane.OK_OPTION);
+								"Message",JOptionPane.WARNING_MESSAGE);
 						return "returntolistsubletapt";
 					}
 		            session.insert("insertnewsavedsubleaseapt", save);
